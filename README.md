@@ -4,7 +4,9 @@
 > `host机:centos7.7（minimal）` kvm虚拟化 `虚机：win7`  
 
 ## u盘安装centos
-> 这一步跟我前一篇文章重复了，就不赘述了 [上一篇](https://github.com/Ricechips/centos7-kvm-win10/blob/master/README.md)
+> 这一步跟我前一篇文章重复了，就不赘述了. 
+> 给个镜像地址http://mirrors.aliyun.com/centos/7.7.1908/isos/x86_64/
+  [上一篇](https://github.com/Ricechips/centos7-kvm-win10/blob/master/README.md)
 
 ## kvm安装
 > 这里多一步连接网络 *dhclient -v*
