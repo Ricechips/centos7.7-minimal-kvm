@@ -12,19 +12,35 @@
 > ps:virt-manager可以不用装了，图形化管理的东西
 
 ## 显卡透传
-> - 配置iommu 
-> - 这一步要注意是否还有一个/boot/efi/EFI/centos/grub.cfg文件，若有，则在linuxefi  ... quiet后面加上 intel_iommu=on，应该有2-3处，然后grub2-mkconfig更新并重启
-> - 找到显卡pci编号并与宿主机解绑打上vfio驱动
+> 配置iommu 
+> 这一步要注意是否还有一个/boot/efi/EFI/centos/grub.cfg文件，若有，则在linuxefi  ... quiet后面加上 intel_iommu=on，应该有2-3处，然后grub2-mkconfig更新并重启
+> 找到显卡pci编号并与宿主机解绑打上vfio驱动
 
 ## 安装OVMF
-> - 安装wget: *curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo*  
+> 安装wget: *curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo*  
+> linux couldnt resolve host mirrors.aliyun.com解决方法
+```c
+vi /etc/resolv.conf
+ nameserver 8.8.8.8
+ nameserver 8.8.4.4
+ search localdomain
+ 
+ service network restart
+```
 > yum install wget
-> - 如果想看ifconfig: yum install net-tools
+> 如果想看ifconfig: yum install net-tools
 
 ## 安装win7
-> - 我是直接将打好驱动的win7镜像直接用移动硬盘拷贝到这个命令行界面，当然，配置文件xml也捎上了。
-> - centos挂载移动硬盘：
-
+> 我是直接将打好驱动的win7镜像直接用移动硬盘拷贝到这个命令行界面，当然，配置文件xml也捎上了。
+> centos挂载移动硬盘：
+```c
+   wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+   yum install ntfs-3g
+   fdisk -l #查看移动硬盘编号
+   parted /dev/sdb print
+   mount -t ntfs /dev/sdb3 /home/kvm 挂载硬盘到kvm目录下
+   cp 复制qcow2和xml
+```
 ## usb透传
 > lsusb命令安装：*yum -y install usbutils*
 > lsusb查询要透传的usb设备得到id号  
