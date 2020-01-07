@@ -42,8 +42,8 @@ vi /etc/resolv.conf
  
  service network restart
 ```
-> yum install wget
-> 如果想看ifconfig: yum install net-tools
+> *yum install wget*
+> 如果想看ifconfig: *yum install net-tools* 
 
 ## 安装win7
 > 我是直接将打好驱动的win7镜像直接用移动硬盘拷贝到这个命令行界面，当然，配置文件xml也捎上了。
@@ -70,4 +70,4 @@ vi /etc/resolv.conf
  </hostdev>
 ```
 ### 一些tips
-把封装好驱动的win7.qcow2和win7.xml拷好后，改一下xml的uuid和mac（直接整行删除，因为会自动生成）,然后把qcow2的路径改改，pci显卡的编号改改，usb的id改改，ok之后就virsh define win7.xml生成虚机 virsh start win7 完事。
+把封装好驱动的win7.qcow2和win7.xml拷好后，改一下xml的uuid和mac（直接整行删除，因为会自动生成）,然后把qcow2的路径改改，pci显卡的编号改改，usb的id改改，ok之后就*virsh define win7.xml*生成虚机 *virsh start win7* 完事。
