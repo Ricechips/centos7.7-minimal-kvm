@@ -71,3 +71,4 @@ vi /etc/resolv.conf
 ```
 ### 一些tips
 把封装好驱动的win7.qcow2和win7.xml拷好后，改一下xml的uuid和mac（直接整行删除，因为会自动生成）,然后把qcow2的路径改改，pci显卡的编号改改，usb的id改改，ok之后就*virsh define win7.xml*生成虚机 *virsh start win7* 完事。若想删除虚拟机*virsh undefine win7*,需先删除/var/lib/libvirt/qemu/nvram下的fd文件。
+https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)
