@@ -8,12 +8,12 @@ echo "vid:$vid"
 read vid
 echo "pid:$pid"
 read pid
-echo"Bus:$b"
+echo "Bus:$b"
 read b
-echo"Device:$d"
+echo "Device:$d"
 read d
 lspci | grep -i vga
-echo"$xk显卡Id:"
+echo "$xk显卡Id:"
 read xk
 echo "<domain type='kvm'>
   <name>"$name"</name>
